@@ -1,50 +1,185 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+const privacyPolicy =
+  "https://app.termly.io/policy-viewer/policy.html?policyUUID=39532b2f-2f0f-4f8c-9a0e-c08dbf80d26d";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Support and information for the Commendo app."
+    />
+    <title>Commendo Support</title>
+
+    <style>
+      :global(*) {
+        box-sizing: border-box;
+      }
+
+      :global(body) {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+          sans-serif;
+        background: #fff3ed;
+        color: #2b211e;
+      }
+
+      main {
+        width: min(720px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 88px 0 56px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 48px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .mark {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: #ff8069;
+        color: white;
+      }
+
+      h1 {
+        max-width: 620px;
+        margin: 0;
+        font-size: clamp(44px, 8vw, 72px);
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+      }
+
+      .intro {
+        max-width: 590px;
+        margin: 28px 0 0;
+        font-size: 20px;
+        line-height: 1.55;
+        color: #65544e;
+      }
+
+      .card {
+        margin-top: 56px;
+        padding: 30px;
+        border: 1px solid rgba(43, 33, 30, 0.08);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 18px 50px rgba(67, 39, 27, 0.08);
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 25px;
+      }
+
+      p {
+        line-height: 1.65;
+      }
+
+      .email {
+        display: inline-block;
+        margin-top: 10px;
+        color: #d94f3a;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .email:hover,
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 38px;
+        font-size: 15px;
+      }
+
+      footer a {
+        color: #65544e;
+        text-decoration: none;
+      }
+
+      .copyright {
+        width: 100%;
+        margin-top: 12px;
+        color: #8a7770;
+        font-size: 14px;
+      }
+
+      @media (max-width: 600px) {
+        main {
+          padding-top: 48px;
+        }
+
+        .brand {
+          margin-bottom: 38px;
+        }
+
+        .card {
+          margin-top: 42px;
+          padding: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="brand">
+        <span class="mark">C</span>
+        Commendo
+      </div>
+
+      <h1>Recommendations worth acting on.</h1>
+
+      <p class="intro">
+        Commendo helps you discover books, movies, restaurants, travel
+        experiences and more through trusted recommendations from people whose
+        taste matters to you.
+      </p>
+
+      <section class="card">
+        <h2>Commendo Support</h2>
+
+        <p>
+          Found a bug, have a question, or need help with your account? Contact
+          us and we’ll get back to you as soon as possible.
+        </p>
+
+        <a class="email" href="mailto:support@commendoapp.com">
+          support@commendoapp.com
+        </a>
+
+        <p>We usually respond within 1–3 business days.</p>
+      </section>
+
+      <footer>
+        <a href={privacyPolicy} target="_blank" rel="noopener noreferrer">
+          Privacy Policy
+        </a>
+
+        <a href="mailto:support@commendoapp.com">Contact Support</a>
+
+        <div class="copyright">
+          © 2026 Commendo. All rights reserved.
+        </div>
+      </footer>
+    </main>
+  </body>
 </html>
