@@ -1,0 +1,114 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Commendo</title>
+
+    <style>
+      :global(*) {
+        box-sizing: border-box;
+      }
+
+      :global(body) {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+          sans-serif;
+        background: #fff3ed;
+        color: #2b211e;
+      }
+
+      main {
+        width: min(720px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 88px 0 56px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 48px;
+        color: #2b211e;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .mark {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: #ff8069;
+        color: white;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(40px, 7vw, 58px);
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .policy {
+        width: 100%;
+        min-width: 0;
+        margin-top: 42px;
+        padding: 30px;
+        overflow: hidden;
+        border: 1px solid rgba(43, 33, 30, 0.08);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 18px 50px rgba(67, 39, 27, 0.08);
+      }
+
+      @media (max-width: 600px) {
+        main {
+          padding-top: 48px;
+        }
+
+        .brand {
+          margin-bottom: 38px;
+        }
+
+        .policy {
+          margin-top: 32px;
+          padding: 20px;
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <a class="brand" href="/" aria-label="Commendo home">
+        <span class="mark" aria-hidden="true">C</span>
+        Commendo
+      </a>
+
+      <h1>{title}</h1>
+
+      <section class="policy" aria-label={title}>
+        <slot />
+      </section>
+    </main>
+  </body>
+</html>
