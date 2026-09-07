@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   description: string;
+  showHeading?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, showHeading = true } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -72,11 +73,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         min-width: 0;
         margin-top: 42px;
         padding: 30px;
-        overflow: hidden;
+        overflow-x: auto;
         border: 1px solid rgba(43, 33, 30, 0.08);
         border-radius: 24px;
         background: rgba(255, 255, 255, 0.78);
         box-shadow: 0 18px 50px rgba(67, 39, 27, 0.08);
+      }
+
+      .policy--without-heading {
+        margin-top: 0;
       }
 
       @media (max-width: 600px) {
@@ -104,9 +109,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         Commendo
       </a>
 
-      <h1>{title}</h1>
+      {showHeading && <h1>{title}</h1>}
 
-      <section class="policy" aria-label={title}>
+      <section
+        class:list={["policy", { "policy--without-heading": !showHeading }]}
+        aria-label={title}
+      >
         <slot />
       </section>
     </main>

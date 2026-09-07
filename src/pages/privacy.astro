@@ -1,11 +1,12 @@
 ---
 import LegalPage from "../layouts/LegalPage.astro";
+import privacyPolicyHtml from "../legal/privacy-policy.html?raw";
 ---
 
 <LegalPage
   title="Privacy Policy"
   description="Read the Commendo Privacy Policy."
+  showHeading={false}
 >
-  <div name="termly-embed" data-id="39532b2f-2f0f-4f8c-9a0e-c08dbf80d26d"></div>
-  <script src="https://app.termly.io/embed-policy.min.js" async></script>
+  <Fragment set:html={privacyPolicyHtml} />
 </LegalPage>
